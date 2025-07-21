@@ -1,8 +1,8 @@
 -- Keymaps for better default experience
 -- For detailed usage, see https://www.youtube.com/watch?v=KYDG3AHgYEs
 -- Set leader key
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- For conciseness
 -- noremap -> keymaps should not be redefined
@@ -29,7 +29,7 @@ vim.keymap.set('n', '<leader>sn', '<cmd>noautocmd w <CR>', opts)
 vim.keymap.set('n', '<C-q>', '<cmd> q <CR>', opts)
 
 -- delete single character without copying into register
--- vim.keymap.set('n', 'x', '"_x', opts)
+vim.keymap.set('n', 'x', '"_x', opts)
 
 -- Vertical scroll and center
 vim.keymap.set('n', '<C-d>', '<C-d>zz', opts)
@@ -84,7 +84,7 @@ vim.keymap.set('i', 'kj', '<ESC>', opts)
 vim.keymap.set('v', '<', '<gv', opts)
 vim.keymap.set('v', '>', '>gv', opts)
 
--- Move text up and down
+-- FIXME: Move text up and down
 vim.keymap.set('v', '<A-j>', ':m .+1<CR>==', opts)
 vim.keymap.set('v', '<A-k>', ':m .-2<CR>==', opts)
 
@@ -126,3 +126,5 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- Save and load session
 vim.keymap.set('n', '<leader>ss', ':mksession! .session.vim<CR>', { noremap = true, silent = false })
 vim.keymap.set('n', '<leader>sl', ':source .session.vim<CR>', { noremap = true, silent = false })
+
+
