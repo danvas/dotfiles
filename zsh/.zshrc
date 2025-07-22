@@ -106,6 +106,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 alias zshconfig="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
+alias nvconfig="cd $HOME/.config/nvim && nvim ." 
+alias ping-openai='curl -s -H "Authorization: Bearer $OPENAI_API_KEY" https://api.openai.com/v1/models | grep -q "id" && echo "✅ OPENAI_API_KEY is valid" || echo "❌ OPENAI_API_KEY invalid"'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
