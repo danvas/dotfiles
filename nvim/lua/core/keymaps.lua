@@ -31,6 +31,9 @@ vim.keymap.set('n', '<C-q>', '<cmd> q <CR>', opts)
 -- delete single character without copying into register
 vim.keymap.set('n', 'x', '"_x', opts)
 
+-- Make dd always delete without copying
+vim.keymap.set('n', 'dd', '"_dd', opts)
+
 -- Vertical scroll and center
 vim.keymap.set('n', '<C-d>', '<C-d>zz', opts)
 vim.keymap.set('n', '<C-u>', '<C-u>zz', opts)
@@ -66,12 +69,6 @@ vim.keymap.set('n', '<C-k>', ':wincmd k<CR>', opts)
 vim.keymap.set('n', '<C-j>', ':wincmd j<CR>', opts)
 vim.keymap.set('n', '<C-h>', ':wincmd h<CR>', opts)
 vim.keymap.set('n', '<C-l>', ':wincmd l<CR>', opts)
-
--- Tabs
-vim.keymap.set('n', '<leader>to', ':tabnew<CR>', opts) -- open new tab
-vim.keymap.set('n', '<leader>tx', ':tabclose<CR>', opts) -- close current tab
-vim.keymap.set('n', '<leader>tn', ':tabn<CR>', opts) --  go to next tab
-vim.keymap.set('n', '<leader>tp', ':tabp<CR>', opts) --  go to previous tab
 
 -- Toggle line wrapping
 vim.keymap.set('n', '<leader>lw', '<cmd>set wrap!<CR>', opts)
@@ -128,4 +125,12 @@ vim.keymap.set('n', '<leader>ss', ':mksession! .session.vim<CR>', { noremap = tr
 vim.keymap.set('n', '<leader>sl', ':source .session.vim<CR>', { noremap = true, silent = false })
 
 -- nielvas.co's keymaps
--- vim.keymap.set('n', '<leader>qw', 'ciw"<C-r>""<Esc>', { noremap = true, silent = true, desc = 'Quote current word' })
+
+-- Surround word in parentheses
+vim.keymap.set('n', '<leader>e(', 'ciw(<C-r>")<Esc>', { noremap = true, silent = true, desc = 'Surround with ()' })
+-- Double quotes
+vim.keymap.set('n', '<leader>e"', 'ciw"<C-r>""<Esc>', { noremap = true, silent = true, desc = 'Quote word with double quotes' })
+-- Single quotes
+vim.keymap.set('n', "<leader>e'", "ciw'<C-r>\"'<Esc>", { noremap = true, silent = true, desc = 'Quote word with single quotes' })
+-- Backticks
+vim.keymap.set('n', '<leader>e`', 'ciw`<C-r>"`<Esc>', { noremap = true, silent = true, desc = 'Quote word with backticks' })
