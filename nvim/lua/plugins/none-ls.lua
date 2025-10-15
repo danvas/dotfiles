@@ -7,7 +7,7 @@ return {
   },
   config = function()
     local null_ls = require 'null-ls'
-    local formatting = null_ls.builtins.formatting   -- to setup formatters
+    local formatting = null_ls.builtins.formatting -- to setup formatters
     local diagnostics = null_ls.builtins.diagnostics -- to setup linters
 
     -- list of formatters & linters for mason to install
@@ -17,6 +17,7 @@ return {
         'prettier', -- ts/js formatter
         'eslint_d', -- ts/js linter
         'shfmt',
+        'pylint',
         -- 'stylua', -- lua formatter; Already installed via Mason
         -- 'ruff', -- Python linter and formatter; Already installed via Mason
       },
@@ -32,6 +33,12 @@ return {
       formatting.terraform_fmt,
       require('none-ls.formatting.ruff').with { extra_args = { '--extend-select', 'I' } },
       require 'none-ls.formatting.ruff_format',
+      diagnostics.pylint.with {
+        extra_args = function()
+          local rcfile = vim.fn.findfile('.pylintrc', vim.fn.getcwd() .. ';')
+          return rcfile and { '--rcfile', rcfile } or {}
+        end,
+      }, -- Add pylint with .pylintrc detection
     }
 
     local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
