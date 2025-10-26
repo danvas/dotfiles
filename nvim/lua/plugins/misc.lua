@@ -20,6 +20,11 @@ return {
     -- Hints keybinds
     'folke/which-key.nvim',
     opts = {
+      spec = {
+        { '<leader>hR', desc = 'Reset Git Hunk', mode = 'n' }, -- Add Reset Git Hunk
+        { '<leader>hp', desc = 'Preview Git Hunk', mode = 'n' },
+        { '<leader>hi', desc = 'Preview Git Hunk Inline', mode = 'n' },
+      },
       -- win = {
       --   border = {
       --     { '┌', 'FloatBorder' },

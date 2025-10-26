@@ -31,6 +31,7 @@ return {
 
         -- Actions
         map('n', '<leader>hp', gitsigns.preview_hunk)
+        map('n', '<leader>hR', gitsigns.reset_hunk)
         map('n', '<leader>hr', gitsigns.refresh)
         map('n', '<leader>hi', gitsigns.preview_hunk_inline)
 
