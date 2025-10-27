@@ -60,4 +60,8 @@ return {
       require('colorizer').setup()
     end,
   },
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    ft = { 'markdown', 'codecompanion' },
+  },
 }

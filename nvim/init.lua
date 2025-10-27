@@ -17,11 +17,11 @@ rtp:prepend(lazypath)
 require('lazy').setup {
   require 'plugins.neo-tree',
   require 'plugins.colortheme',
+  require 'plugins.codecompanion',
   require 'plugins.bufferline',
   require 'plugins.autocompletion',
   require 'plugins.lsp',
   require 'plugins.none-ls',
-  require 'plugins.avante',
   require 'plugins.misc',
   require 'plugins.lualine',
   require 'plugins.treesitter',
