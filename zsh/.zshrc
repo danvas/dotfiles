@@ -118,6 +118,12 @@ else
   echo ".zsh_secrets does not exist. API keys or secrets may not be available."
 fi
 
+if [[ -f ~/.zsh_alias ]]; then
+  source ~/.zsh_alias
+else
+  echo ".zsh_alias does not exist. Some alias' may not be available."
+fi
+
 if [[ -f $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme ]]; then
   source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 else
@@ -151,3 +157,13 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+
+autoload bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
+
+# Created by `pipx` on 2025-11-13 00:08:51
+export PATH="$PATH:$HOME/.local/bin"
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
