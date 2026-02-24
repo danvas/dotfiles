@@ -34,7 +34,7 @@ return {
         map('n', '<leader>hR', gitsigns.reset_hunk)
         map('n', '<leader>hr', gitsigns.refresh)
         map('n', '<leader>hi', gitsigns.preview_hunk_inline)
-
+        map('n', '<leader>hb', gitsigns.blame_line)
         map('n', '<leader>hd', gitsigns.diffthis)
 
         map('n', '<leader>hD', function()

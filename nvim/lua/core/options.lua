@@ -44,3 +44,22 @@ vim.opt.shortmess:append 'c' -- don't give |ins-completion-menu| messages
 vim.opt.iskeyword:append '-' -- hyphenated words recognized by searches
 vim.opt.formatoptions:remove { 'c', 'r', 'o' } -- don't insert the current comment leader automatically for auto-wrapping comments using 'textwidth', hitting <Enter> in insert mode, or hitting 'o' or 'O' in normal mode.
 vim.opt.runtimepath:remove '/usr/share/vim/vimfiles' -- separate vim plugins from neovim in case vim still in use
+
+-- Treesitter folding on buffer enter
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.foldlevel = 99 -- start with all folds open
+vim.opt.foldenable = true
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*",
+  callback = function()
+    if vim.bo.filetype ~= "" then  -- only for real files
+      vim.opt_local.foldmethod = "expr"
+      vim.opt_local.foldexpr   = "nvim_treesitter#foldexpr()"
+      vim.opt_local.foldlevel  = 99
+      vim.opt_local.foldenable = true
+    end
+  end,
+})
+
+
